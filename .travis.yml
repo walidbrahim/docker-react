@@ -1,0 +1,11 @@
+language: generic
+
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t brahimwalid/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run -e CI=true brahimwalid/docker-react npm run test
